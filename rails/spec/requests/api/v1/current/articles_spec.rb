@@ -34,7 +34,7 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
   # end
 
   describe "GET api/v1/current/articles/:id" do
-    subject { get(api_v1_current_article_path(id), headers: headers) }
+    subject { get(api_v1_current_article_path(id), headers:) }
 
     let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { create(:user) }
@@ -64,7 +64,7 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
   end
 
   describe "POST api/v1/current/articles" do
-    subject { post(api_v1_current_articles_path, headers: headers) }
+    subject { post(api_v1_current_articles_path, headers:) }
 
     let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { create(:user) }
@@ -94,7 +94,7 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
   end
 
   describe "PATCH api/v1/current/articles" do
-    subject { patch(api_v1_current_article_path(id), headers: headers, params: params) }
+    subject { patch(api_v1_current_article_path(id), headers:, params:) }
 
     let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { create(:user) }

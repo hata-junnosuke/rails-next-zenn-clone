@@ -2,8 +2,9 @@ require "rails_helper"
 
 RSpec.describe Article, type: :model do
   context "factoryのデフォルト設定に従った時" do
+    subject { create(:article, user:) }
+
     let(:user) { create(:user) }
-    subject { create(:article, user: user) }
 
     it "正常にレコードを新規作成できる" do
       expect { subject }.to change { Article.count }.by(1)

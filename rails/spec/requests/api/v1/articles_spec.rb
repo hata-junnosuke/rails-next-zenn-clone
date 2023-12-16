@@ -6,8 +6,8 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     before do
       user = create(:user)
-      create_list(:article, 25, user: user, title: 'Test Title', content: 'Test Content', status: :published)
-      create_list(:article, 8, user: user, title: 'Test Title', content: 'Test Content', status: :draft)
+      create_list(:article, 25, user:, title: "Test Title", content: "Test Content", status: :published)
+      create_list(:article, 8, user:, title: "Test Title", content: "Test Content", status: :draft)
     end
 
     context "page を params で送信しない時" do
@@ -49,7 +49,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     subject { get(api_v1_article_path(article_id)) }
 
     let(:user) { create(:user) }
-    let(:article) { create(:article, user: user, title: 'Test Title', content: 'Test Content', status:) }
+    let(:article) { create(:article, user:, title: "Test Title", content: "Test Content", status:) }
 
     context "article_id に対応する articles レコードが存在する時" do
       let(:article_id) { article.id }
